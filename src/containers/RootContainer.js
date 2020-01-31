@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { View, StatusBar } from 'react-native'
-// import ReduxNavigation from '../navigation/ReduxNavigation'
 import AppNavigation from '../navigation/AppNavigation'
+/* redux navigation react-native-redux-helpers not necessary for our use case */
+// import ReduxNavigation from '../navigation/ReduxNavigation'
 // import { connect } from 'react-redux'
 // import StartupActions from '../Redux/StartupRedux'
 
