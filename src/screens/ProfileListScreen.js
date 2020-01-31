@@ -3,7 +3,7 @@ import { FlatList, View, TouchableHighlight } from 'react-native'
 import ProfileCard from '../components/ProfileCard';
 
 // Styles
-import styles from './styles/ProfileListScreenStyles'
+import styles from './styles/ProfileScreenStyles'
 import { Colors } from '../themes/'
 
 // dummy data

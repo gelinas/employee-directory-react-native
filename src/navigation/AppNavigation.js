@@ -10,13 +10,14 @@ import styles from './styles/NavigationStyles'
 const PrimaryNav = createStackNavigator({
   ProfileList: { 
     screen: ProfileListScreen,
-    navigationOptions: ({navigation}) => ({
+    // can override default navigation settings with an object
+    navigationOptions: {
       title: "Employee Directory",
-    })
+    }
   },
   Profile: { 
     screen: ProfileScreen,
-    // headerMode: 'float',
+    // can override default navigation settings with a function that returns an object
     navigationOptions: ({navigation}) => ({
       title: `${navigation.state.params.item.first_name}'s Profile`,
       headerStyle: styles.header,

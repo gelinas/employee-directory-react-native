@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { FlatList, ScrollView, Text, Image,ImageBackground, View } from 'react-native'
 import { Images } from '../themes'
-import ProfileCard from '../components/ProfileCard';
+import ProfileCard from '../components/ProfileCard'
+import ProfileNotes from '../components/ProfileNotes'
 
 // Styles
-import styles from './styles/ProfileListScreenStyles'
+import styles from './styles/ProfileScreenStyles'
 
 export default function ProfileScreen({navigation}) {
   const item = navigation.getParam('item', {})
@@ -13,6 +14,7 @@ export default function ProfileScreen({navigation}) {
       <View style={styles.container}>
         {/* <Text>Boo</Text> */}
         <ProfileCard item={item} />
+        <ProfileNotes item={item} />
       </View>
     </View>
   )

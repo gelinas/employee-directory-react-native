@@ -1,6 +1,5 @@
 import React from 'react'
-import {Text, Image, View, Button} from 'react-native'
-import { Images } from '../themes'
+import {Text, Image, View} from 'react-native'
 
 // Styles
 import styles from './styles/ProfileCardStyles'

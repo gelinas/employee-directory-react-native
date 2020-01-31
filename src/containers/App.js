@@ -1,8 +1,10 @@
 // import '../Config'
 // import DebugConfig from '../Config/DebugConfig'
 import React, { Component } from 'react'
-// import { Provider } from 'react-redux'
 import RootContainer from './RootContainer'
+
+// redux
+// import { Provider } from 'react-redux'
 // import createStore from '../Redux'
 
 // create our store
