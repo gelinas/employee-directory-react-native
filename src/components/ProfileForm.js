@@ -1,16 +1,29 @@
 import React from 'react'
 import {Alert, Text, TextInput, TouchableOpacity, View} from 'react-native'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
-import { Formik } from 'formik';
-import * as yup from 'yup';
+import { Formik } from 'formik'
+import * as yup from 'yup'
+import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 // Styles
 import styles from './styles/ProfileFormStyles'
 
-export default function ProfileForm({item}) {
+export default function ProfileForm({item, navigation}) {
   return (
     <Formik
-      initialValues={{ 
+      initialValues={item
+        ? {
+          first_name: item.first_name, 
+          last_name: item.last_name,
+          phone: item.phone, 
+          email: item.email, 
+          address: item.address, 
+          city: item.city, 
+          state: item.state, 
+          zip: item.zip, 
+          photo: item.photo,
+          notes: item.notes}
+        : { 
         first_name: "", 
         last_name: "", 
         phone: "", 
@@ -22,7 +35,28 @@ export default function ProfileForm({item}) {
         photo: "",
         notes: ""
         }}
-      onSubmit={values => Alert.alert(JSON.stringify(values))}
+      onSubmit={values => {
+        let endpoint = item ? `/directory/${item.id}` : '/directory'
+        axiosWithAuth().post(endpoint, values).then(res =>{
+          const {data} = res;
+          Alert.alert(
+            'Profile Created',
+            `Profile for ${data.first_name} ${data.last_name} ${item ? 'updated' : 'created'}`,
+            [
+              {text: 'OK', onPress: () => {
+                navigation.push('Profile', {
+                  item: data
+                })
+              }},
+            ],
+            {cancelable: false},
+          );
+        }).catch(err => {
+          const {response} = err;
+          Alert.alert(`Error status code "${response.status}" with message "${response.data.message}" and error "${response.data.error}"`)
+          // Alert.alert(JSON.stringify(response))
+        })
+      }}
       validationSchema={yup.object().shape({
         first_name: yup.string()
           .required("Enter first name")

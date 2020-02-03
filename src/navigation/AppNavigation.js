@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 // import LaunchScreen from '../containers/LaunchScreen'
 import ProfileListScreen from '../screens/ProfileListScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import UpdateProfileScreen from '../screens/UpdateProfileScreen';
 import AddProfileScreen from '../screens/AddProfileScreen';
 
 // styles
@@ -28,6 +29,13 @@ const DirectoryNav = createStackNavigator({
     // can override default navigation settings with a function that returns an object
     navigationOptions: ({navigation}) => ({
       title: `${navigation.state.params.item.first_name}'s Profile`,
+      headerStyle: styles.header,
+    })},
+  UpdateProfile: { 
+    screen: UpdateProfileScreen,
+    // can override default navigation settings with a function that returns an object
+    navigationOptions: ({navigation}) => ({
+      title: `Update ${navigation.state.params.item.first_name}'s Profile`,
       headerStyle: styles.header,
     })},
 }, {

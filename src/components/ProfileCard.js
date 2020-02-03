@@ -8,20 +8,20 @@ export default function ProfileCard({item}) {
   return (
     <View style={styles.section}>
       <Image source={{uri: item.photo}}
-        style={{width: 174, height: 174}} 
+        style={{width: 150, height: 150}} 
       />
       <View style={styles.profile}>
         <View>
-          <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+          <Text style={{fontSize: 16, fontWeight: 'bold'}}>
             {`${item.first_name} ${item.last_name}`}
           </Text>
-          <Text style={{fontSize: 16}}>{`Email: ${item.email}`}</Text>
-          <Text style={{fontSize: 16}}>{`Phone: ${item.phone}`}</Text>
+          <Text style={{fontSize: 14}}>{`Email: ${item.email}`}</Text>
+          <Text style={{fontSize: 14}}>{`Phone: ${item.phone}`}</Text>
         </View>
         <View>
-          <Text style={{fontSize: 16}}>Address:</Text>
-          <Text style={{fontSize: 16}}>{item.address}</Text>
-          <Text style={{fontSize: 16}}>
+          <Text style={{fontSize: 14}}>Address:</Text>
+          <Text style={{fontSize: 14}}>{item.address}</Text>
+          <Text style={{fontSize: 14}}>
             {`${item.city}, ${item.state} ${item.zip}`}
           </Text>
         </View>

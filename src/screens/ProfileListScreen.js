@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { FlatList, SafeAreaView, View, TouchableHighlight } from 'react-native'
-import ProfileCard from '../components/ProfileCard';
-import axios from 'axios';
+import ProfileCard from '../components/ProfileCard'
+import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 // Styles
 import styles from './styles/ProfileScreenStyles'
@@ -15,8 +15,8 @@ export default function ProfileListScreen({navigation}) {
   const [profileList, setProfileList] = useState([])
 
   useEffect(() => {
-      axios.get(
-        'https://directory-rest.herokuapp.com/api/directory'
+      axiosWithAuth().get(
+        '/directory'
       ).then(res => {
         setProfileList(res.data)
         // console.log(res)

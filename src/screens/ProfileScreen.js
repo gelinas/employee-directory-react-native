@@ -1,5 +1,5 @@
 import React from 'react'
-import {SafeAreaView, View} from 'react-native'
+import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native'
 import ProfileCard from '../components/ProfileCard'
 import ProfileNotes from '../components/ProfileNotes'
 
@@ -13,6 +13,16 @@ export default function ProfileScreen({navigation}) {
       <View style={styles.container}>
         <ProfileCard item={item} />
         <ProfileNotes item={item} />
+        <TouchableOpacity
+          onPress={() => {
+            navigation.push('UpdateProfile', {
+              item: item
+            })
+          }}
+          style={styles.editButton}
+        >
+          <Text style={{color: '#fff', fontSize: 16}}>Edit Profile</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   )
