@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
-import { FlatList, ScrollView, Text, Image,ImageBackground, View } from 'react-native'
-import { Images } from '../themes'
+import React from 'react'
+import {SafeAreaView, View} from 'react-native'
 import ProfileCard from '../components/ProfileCard'
 import ProfileNotes from '../components/ProfileNotes'
 
@@ -10,12 +9,11 @@ import styles from './styles/ProfileScreenStyles'
 export default function ProfileScreen({navigation}) {
   const item = navigation.getParam('item', {})
   return (
-    <View style={styles.mainContainer}>
+    <SafeAreaView style={styles.mainContainer}>
       <View style={styles.container}>
-        {/* <Text>Boo</Text> */}
         <ProfileCard item={item} />
         <ProfileNotes item={item} />
       </View>
-    </View>
+    </SafeAreaView>
   )
 }

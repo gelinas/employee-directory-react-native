@@ -1,19 +1,16 @@
-import React, { Component } from 'react'
-import { FlatList, ScrollView, Text, Image,ImageBackground, View } from 'react-native'
-import { Images } from '../themes'
-import ProfileCard from '../components/ProfileCard'
-import ProfileNotes from '../components/ProfileNotes'
+import React from 'react'
+import { Text, SafeAreaView, View } from 'react-native'
+import ProfileForm from '../components/ProfileForm'
 
 // Styles
 import styles from './styles/ProfileScreenStyles'
 
-export default function ProfileScreen({navigation}) {
-  const item = navigation.getParam('item', {})
+export default function AddProfileScreen() {
   return (
-    <View style={styles.mainContainer}>
+    <SafeAreaView style={styles.mainContainer}>
       <View style={styles.container}>
-        <Text>Boo</Text>
+        <ProfileForm />
       </View>
-    </View>
+    </SafeAreaView>
   )
 }

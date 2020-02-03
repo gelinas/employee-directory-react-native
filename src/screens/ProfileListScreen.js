@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { FlatList, View, TouchableHighlight } from 'react-native'
+import { FlatList, SafeAreaView, View, TouchableHighlight } from 'react-native'
 import ProfileCard from '../components/ProfileCard';
 import axios from 'axios';
 
@@ -26,7 +26,7 @@ export default function ProfileListScreen({navigation}) {
     }, []);
 
   return (
-    <View style={styles.mainContainer}>
+    <SafeAreaView style={styles.mainContainer}>
       {/* prototype FlatList */}
       <View style={styles.container}>
           <FlatList
@@ -50,6 +50,6 @@ export default function ProfileListScreen({navigation}) {
             keyExtractor = { (item, index) => index.toString() } 
           />
       </View>
-    </View>
+    </SafeAreaView>
   )
 }

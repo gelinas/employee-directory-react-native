@@ -14,8 +14,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './styles/NavigationStyles';
 import {Colors} from '../themes';
 
-// Manifest of possible screens
-const ProfileNav = createStackNavigator({
+// Stack navigator for the Employee Directory Tab
+const DirectoryNav = createStackNavigator({
   ProfileList: { 
     screen: ProfileListScreen,
     // can override default navigation settings with an object
@@ -39,9 +39,28 @@ const ProfileNav = createStackNavigator({
   }
 })
 
+// Stack navigator for the Add Profile Tab
+const AddProfileNav = createStackNavigator({
+  AddProfile: { 
+    screen: AddProfileScreen,
+    // can override default navigation settings with an object
+    navigationOptions: {
+      title: "Add Employee",
+    }
+  },
+}, {
+  // Default config for all screens
+  headerMode: 'float',
+  initialRouteName: 'AddProfile',
+  navigationOptions: {
+    headerStyle: styles.header
+  }
+})
+
+// Tab navigator for the bottom of the screen
 const PrimaryNav = createBottomTabNavigator({
   Profile: { 
-    screen: ProfileNav,
+    screen: DirectoryNav,
     // can override default navigation settings with an object
     navigationOptions: {
       title: "Employee Directory",
@@ -55,7 +74,7 @@ const PrimaryNav = createBottomTabNavigator({
     }
   },
   AddProfile: { 
-    screen: AddProfileScreen,
+    screen: AddProfileNav,
     // can override default navigation settings with a function that returns an object
     navigationOptions: {
       title: 'Add Employee',
@@ -70,16 +89,14 @@ const PrimaryNav = createBottomTabNavigator({
   }
 }, {
   // Default config for all screens
-  headerMode: 'float',
   initialRouteName: 'Profile',
   navigationOptions: {
     headerStyle: styles.header
   },
   tabBarOptions: {
-    activeTintColor: Colors.union,
-    inactiveTintColor: 'gray',
+    activeTintColor: Colors.orangeDark,
+    inactiveTintColor: Colors.union,
   },
 })
 
 export default createAppContainer(PrimaryNav)
-// export default createAppContainer(ProfileNav)
