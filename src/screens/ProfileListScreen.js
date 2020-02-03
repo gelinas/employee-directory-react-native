@@ -47,7 +47,7 @@ export default function ProfileListScreen({navigation}) {
                 />
               </TouchableHighlight>
             }
-            keyExtractor = { (item, index) => index.toString() } 
+            keyExtractor = {(item) => item.id.toString() } 
           />
       </View>
     </SafeAreaView>
